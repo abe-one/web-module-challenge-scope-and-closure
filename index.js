@@ -68,7 +68,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-    return Math.floor(Math.random * 3);
+    return Math.floor(Math.random() * 3);
 };
 
 
@@ -117,7 +117,7 @@ Use the scoreboard function below to do the following:
   2. Receive the callback function `inning` from Task 2
   3. Receive a number of innings to be played
   4. Return an array where each of it's index values equals a string stating the
-  Home and Away team's scores for each inning.  Not the cummulative score.
+  Home and Away team's scores for each inning.  Not the cumulative score.
   5. If there's a tie at the end of the innings, add this message containing the score to the end of the array:  "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
      If there isn't a tie, add this message to the end of the array: "Final Score: Away 13 - Home 11"  (see no tie example below)
   
@@ -136,7 +136,7 @@ Use the scoreboard function below to do the following:
   "Final Score: Away 11 - Home 12"  
 ]
 
-  TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
+  TIE example: invoking scoreboard(getInningScore, inning, 9) might return 
   an array of strings like this:
 [
   "Inning 1: Away 1 - Home 1", 
@@ -152,9 +152,25 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+ function scoreboard(callBkInningScore, callbkInning, inningTot) {
+  let AwayTot = 0;
+  let homeTot = 0;
+  let scoreboard = [];
+  // let inningScore = callBkInningScore(callbkInning)
+  // return inningScore
+  for(let i = 1; i <= inningTot + 1; i++){
+    let inningScore = callBkInningScore(callbkInning);
+    // return inningScore.Home;
+    scoreboard.push(`Inning ${i}: Away ${inningScore.Away} - Home ${inningScore.Home}`);
+    AwayTot = AwayTot + inningScore.Away
+    homeTot = homeTot + inningScore.Home;
+  };
+    if(AwayTot === homeTot){
+      scoreboard.push(`This game will require extra innings: Away ${AwayTot} - Home ${homeTot}`);
+    }
+    else(scoreboard.push(`Final Score: Away ${AwayTot} - Home ${homeTot}`));
+  return scoreboard;
+  };
 
 
 
