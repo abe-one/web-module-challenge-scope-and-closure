@@ -64,9 +64,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? The closure is in each const declared: the anonymous function and its referencing of the above name value after the personalDice function is terminated by the return. Can tell by reading, and because dansRoll and zoesRoll cannot change the name, but they can change the value of newRoll which is returned at every invocation.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? Name locked by personalDice return which created the DansRoll function. DansRoll, the formerly anonymous function, is what's called so newRoll's value changes because that is declared inside the scope of DansRoll.
+c. What is the lexical scope of `newRoll`? Hmmm, newRoll is a const, if it were a function, as executed it's lexical scope is limited to it's scope, the values it is assigned, however, if those values had included a reference to `name` then it's lexical scope would include the personalDice function because it would continue to refer to that value.
 
 
 ### Task 3 - Stretch Goals
