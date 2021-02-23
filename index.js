@@ -92,8 +92,8 @@ function finalScore(callback, innings){
     Away: 0,
   };
   for(let i = 0; i <= innings; i++){
-    finalScore[`Home`] = finalScore[`Home`] + 2;
-    finalScore[`Away`] = finalScore[`Away`]
+    finalScore[`Home`] = finalScore[`Home`] + inning();
+    finalScore[`Away`] = finalScore[`Away`] + inning();
   };
   return finalScore;
 };
