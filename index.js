@@ -33,7 +33,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Counter2 will update the value of `counter` because `counter is declared outside of the function scope.
   
   2. Which of the two uses a closure? How can you tell?
-Both because the callback `counter` function inside counter1 references the `count` variable from it's parent function; and the `counter2` function references the count variable from outside it's scope.
+counter1 because counter1 is assigned function counterMaker, which sets the variable count and then returns the counter function. This is a closure because counter1 is effectively the counter function which has exclusive access to the count variable. The count variable is protected.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
   counter2 be better?  
